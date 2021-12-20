@@ -1,8 +1,8 @@
 const curry = (func) => {
-  const curried = (...args) =>
-    args.length >= func.length
-      ? func(...args)
-      : (...accArgs) => curried(...args.concat(accArgs));
+  const curried = (...accArgs) =>
+    accArgs.length >= func.length
+      ? func(...accArgs)
+      : (...args) => curried(...accArgs.concat(args));
 
   return curried;
 };
