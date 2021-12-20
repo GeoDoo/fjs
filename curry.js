@@ -2,7 +2,7 @@ const curry = (func) => {
   const curried = (...args) =>
     args.length >= func.length
       ? func(...args)
-      : (...rest) => curried(...args.concat(rest));
+      : (...accArgs) => curried(...args.concat(accArgs));
 
   return curried;
 };
